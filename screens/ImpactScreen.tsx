@@ -73,12 +73,12 @@ export default function ImpactScreen() {
         <View style={styles.containerBottomIconsTop}>
           <View style={[styles.userIcon, styles.containerBottomIconsLeft]}>
             <Image source={require("../assets/images/users.png")}></Image>
-  <Text style={styles.iconsNumbers}>{numberOfComunity.[0].number}</Text>
+            <Text style={[styles.iconUserTextMarge ,styles.iconsNumbers]}>{numberOfComunity.[0].number}</Text>
             <Text style={styles.textBottom}>Utilisateurs</Text>
           </View>
           <View style={styles.containerBottomIconsRight}>
             <Image source={require("../assets/images/container.png")}></Image>
-            <Text style={styles.iconsNumbers}>{numberOfComunity.[1].number}</Text>
+            <Text style={[styles.iconTextMarge ,styles.iconsNumbers]}>{numberOfComunity.[1].number}</Text>
             <Text style={[styles.textBottom, styles.centerText]}>
               d'emballages jettables évités
             </Text>
@@ -87,12 +87,12 @@ export default function ImpactScreen() {
         <View style={styles.containerBottomIconsBottom}>
           <View style={[styles.weightIcon, styles.containerBottomIconsLeft]}>
             <Image source={require("../assets/images/weight.png")}></Image>
-            <Text style={styles.iconsNumbers}>{numberOfComunity.[2].number} Tonnes</Text>
+            <Text style={[styles.iconTextMarge ,styles.iconsNumbers]}>{numberOfComunity.[2].number} Tonnes</Text>
             <Text style={styles.textBottom}>de déchets évités</Text>
           </View>
           <View style={styles.containerBottomIconsRight}>
             <Image source={require("../assets/images/trash_can.png")}></Image>
-            <Text style={styles.iconsNumbers}>{numberOfComunity.[3].number}</Text>
+            <Text style={[styles.iconTextMarge ,styles.iconsNumbers]}>{numberOfComunity.[3].number}</Text>
             <Text style={styles.textBottom}>Pouvelles en moins</Text>
           </View>
         </View>
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   containerBottomIconsBottom: {
-    marginTop: 30,
+    marginTop: 20,
     backgroundColor: "#D4FFEB",
     marginBottom: 40,
   },
@@ -225,9 +225,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   userIcon: {
-    marginTop: -19,
+    marginTop: -9,
   },
   weightIcon: {
     marginTop: 9,
   },
+  iconTextMarge: {
+      marginTop: 20,
+  },
+  iconUserTextMarge: {
+      marginTop: 10,
+  }
 });
