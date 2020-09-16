@@ -3,12 +3,14 @@ import { StyleSheet, Image, Platform } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import Barcode from "react-native-barcode-builder";
+import { ART } from "react-native";
 
 export default function TabOneScreen() {
   return (
     <View>
       <View style={styles.containerTop}>
-        <Image source={require("../assets/images/icon.png")}></Image>
+        <Barcode value="Hello world" format="CODE128" />
       </View>
       <View style={styles.containerBottom}>
         <Text style={styles.containerTextBold}>Scannez</Text>
@@ -26,33 +28,33 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 40,
     //backgroundColor: "transaparent",
-    top: 0
+    top: 0,
   },
   containerTop: {
     height: "50%",
     backgroundColor: "#dcfcec",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   containerImage: {
-    textAlign: "center"
+    textAlign: "center",
   },
   containerBottom: {
     height: "50%",
     backgroundColor: "#1e59f4",
     textAlign: "center",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   containerTextBold: {
     color: "#fff",
     textAlign: "center",
     fontSize: 20,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   containerText: {
     color: "#fff",
     textAlign: "center",
-    fontSize: 20
-  }
+    fontSize: 20,
+  },
 });
