@@ -8,11 +8,15 @@ import useColorScheme from "../hooks/useColorScheme";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import DepotScreen from "../screens/DepotScreen";
+import TransactionsScreen from "../screens/TransactionsScreen";
+import ImpactScreen from "../screens/ImpactScreen";
 import {
   BottomTabParamList,
-  DepotParamµList,
+  DepotParamList,
+  TransactionsParamList,
+  ImpactParamList,
   TabOneParamList,
-  TabTwoParamList
+  TabTwoParamList,
 } from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -31,16 +35,25 @@ export default function NavBarNavigator() {
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
-          )
+          ),
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Transactions"
+        component={TransactionsNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
-          )
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Impact"
+        component={ImpactNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-code" color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
@@ -107,7 +120,7 @@ function TabTwoNavigator() {
   );
 }
 
-const DepotStack = createStackNavigator<DepotParamµList>();
+const DepotStack = createStackNavigator<DepotParamList>();
 
 function DepotNavigator() {
   return (
@@ -115,8 +128,36 @@ function DepotNavigator() {
       <DepotStack.Screen
         name="DepotScreen"
         component={DepotScreen}
-        options={{ headerTitle: "Header" }}
+        options={{ headerTitle: "DEPÔT" }}
       />
     </DepotStack.Navigator>
+  );
+}
+
+const TransactionsStack = createStackNavigator<TransactionsParamList>();
+
+function TransactionsNavigator() {
+  return (
+    <TransactionsStack.Navigator>
+      <TransactionsStack.Screen
+        name="TransactionsScreen"
+        component={TransactionsScreen}
+        options={{ headerTitle: "MES TRANSACTIONS" }}
+      />
+    </TransactionsStack.Navigator>
+  );
+}
+
+const ImpactStack = createStackNavigator<ImpactParamList>();
+
+function ImpactNavigator() {
+  return (
+    <TransactionsStack.Navigator>
+      <TransactionsStack.Screen
+        name="TransactionsScreen"
+        component={ImpactScreen}
+        options={{ headerTitle: "MON IMPACT" }}
+      />
+    </TransactionsStack.Navigator>
   );
 }

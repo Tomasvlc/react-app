@@ -7,6 +7,8 @@ export type BottomTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
   Depot: undefined;
+  Transactions: undefined;
+  Impact: undefined;
 };
 
 export type NavBarParamList = {
@@ -21,6 +23,14 @@ export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
 
-export type DepotParamµList = {
+export type DepotParamList = {
   DepotScreen: undefined;
+};
+
+export type TransactionsParamList = {
+  TransactionsScreen: undefined;
+};
+
+export type ImpactParamList = {
+  ImpactScreen: undefined;
 };
