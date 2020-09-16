@@ -1,14 +1,50 @@
 import * as React from "react";
-import { StyleSheet, Image, Platform } from "react-native";
+import { StyleSheet, Image, Platform, ScrollView } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 import Barcode from "react-native-barcode-builder";
 import { ART } from "react-native";
 
+var myNumbers = [
+  {
+    id: 0,
+    name: "emballages",
+    number: 15,
+  },
+  {
+    id: 1,
+    name: "emballages-year",
+    number: 35,
+  },
+];
+
+var numberOfComunity = [
+  {
+      id: 0,
+    name: "users",
+    number: 50000,
+  },
+  {
+    id: 1,
+    name: "emballage-avoided",
+    number: 1000000,
+  },
+  {
+    id: 2,
+    name: "weight",
+    number: 20,
+  },
+  {
+    id: 3,
+    name: "trash",
+    number: 300000,
+  },
+];
+
 export default function ImpactScreen() {
   return (
-    <View>
+    <ScrollView>
       <View style={styles.containerTop}>
         <View style={styles.containerTopContent}>
           <Image source={require("../assets/images/follow_me.png")}></Image>
@@ -18,7 +54,7 @@ export default function ImpactScreen() {
       <View style={styles.centerCircle}>
         <View style={styles.containerCircle}>
           <View style={styles.circle}>
-            <Text style={styles.weightCircle}>-15</Text>
+            <Text style={styles.weightCircle}>-{myNumbers.[0].number}</Text>
             <Text style={styles.textCircle}>EMBALLAGES</Text>
           </View>
         </View>
@@ -26,7 +62,7 @@ export default function ImpactScreen() {
       <View style={styles.containerMiddle}>
         <Text style={styles.containerMiddleTitle}>Félicitations !</Text>
         <Text style={styles.containerMiddleText}>A ce rythme</Text>
-        <Text style={styles.containerMiddleTextBold}>-XX emballages</Text>
+        <Text style={styles.containerMiddleTextBold}>-{myNumbers[1].number} emballages</Text>
         <Text style={styles.containerMiddleText}>d'ici fin 2020</Text>
       </View>
       <View style={styles.containerBottom}>
@@ -35,31 +71,33 @@ export default function ImpactScreen() {
           <Text style={styles.textBottomBold}>des Consigneurs</Text>
         </View>
         <View style={styles.containerBottomIconsTop}>
-          <View>
+          <View style={[styles.userIcon, styles.containerBottomIconsLeft]}>
             <Image source={require("../assets/images/users.png")}></Image>
-            <Text>50 000</Text>
-            <Text>Utilisateurs</Text>
+  <Text style={styles.iconsNumbers}>{numberOfComunity.[0].number}</Text>
+            <Text style={styles.textBottom}>Utilisateurs</Text>
           </View>
-          <View>
+          <View style={styles.containerBottomIconsRight}>
             <Image source={require("../assets/images/container.png")}></Image>
-            <Text>1 000 000</Text>
-            <Text>d'emballages jettables évités</Text>
+            <Text style={styles.iconsNumbers}>{numberOfComunity.[1].number}</Text>
+            <Text style={[styles.textBottom, styles.centerText]}>
+              d'emballages jettables évités
+            </Text>
           </View>
         </View>
         <View style={styles.containerBottomIconsBottom}>
-          <View>
+          <View style={[styles.weightIcon, styles.containerBottomIconsLeft]}>
             <Image source={require("../assets/images/weight.png")}></Image>
-            <Text>20 Tonnes</Text>
-            <Text>de déchets évités</Text>
+            <Text style={styles.iconsNumbers}>{numberOfComunity.[2].number} Tonnes</Text>
+            <Text style={styles.textBottom}>de déchets évités</Text>
           </View>
-          <View>
+          <View style={styles.containerBottomIconsRight}>
             <Image source={require("../assets/images/trash_can.png")}></Image>
-            <Text>300 000</Text>
-            <Text>Pouvelles en moins</Text>
+            <Text style={styles.iconsNumbers}>{numberOfComunity.[3].number}</Text>
+            <Text style={styles.textBottom}>Pouvelles en moins</Text>
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -144,6 +182,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
+    marginBottom: 60,
   },
   textBottom: {
     color: "#004FFE",
@@ -154,6 +193,41 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
-  containerBottomIconsTop: {},
-  containerBottomIconsBottom: {},
+  containerBottomIconsTop: {
+    marginTop: 30,
+    backgroundColor: "#D4FFEB",
+    marginBottom: 50,
+  },
+  containerBottomIconsBottom: {
+    marginTop: 30,
+    backgroundColor: "#D4FFEB",
+    marginBottom: 40,
+  },
+  containerBottomIconsLeft: {
+    backgroundColor: "transparent",
+    width: 148,
+    marginLeft: 35,
+    alignItems: "center",
+  },
+  containerBottomIconsRight: {
+    backgroundColor: "transparent",
+    position: "absolute",
+    width: 148,
+    right: 35,
+    alignItems: "center",
+  },
+  iconsNumbers: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#004FFE",
+  },
+  centerText: {
+    textAlign: "center",
+  },
+  userIcon: {
+    marginTop: -19,
+  },
+  weightIcon: {
+    marginTop: 9,
+  },
 });
