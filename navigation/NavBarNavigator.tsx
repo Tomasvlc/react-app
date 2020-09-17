@@ -10,10 +10,12 @@ import TabTwoScreen from "../screens/TabTwoScreen";
 import DepotScreen from "../screens/DepotScreen";
 import TransactionsScreen from "../screens/TransactionsScreen";
 import ImpactScreen from "../screens/ImpactScreen";
+import WelcomeScreen from "../screens/WelcomeScreen";
 import {
   BottomTabParamList,
   DepotParamList,
   TransactionsParamList,
+  WelcomeParamList,
   ImpactParamList,
   TabOneParamList,
   TabTwoParamList,
@@ -50,6 +52,15 @@ export default function NavBarNavigator() {
       <BottomTab.Screen
         name="Impact"
         component={ImpactNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="ios-code" color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Welcome"
+        component={WelcomeNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
@@ -159,5 +170,19 @@ function ImpactNavigator() {
         options={{ headerTitle: "MON IMPACT" }}
       />
     </TransactionsStack.Navigator>
+  );
+}
+
+const WelcomeStack = createStackNavigator<WelcomeParamList>();
+
+function WelcomeNavigator() {
+  return (
+    <WelcomeStack.Navigator>
+      <WelcomeStack.Screen
+        name="WelcomeScreen"
+        component={WelcomeScreen}
+        options={{ headerTitle: "" }}
+      />
+    </WelcomeStack.Navigator>
   );
 }
